@@ -1,45 +1,63 @@
-<div class="container">
-  <h1 class="text-center">
-    【GAS】 スプレッドシートと連携したAjaxフォーム
-  </h1>
-  <hr />
-  <form action="AKfycbyh06rA6n8nvlN1c0u44wLuurJguzA_kxxVwEYCxI_e3b9Riz8/exec" class="form-horizontal">
-    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME" type="hidden" value="フォームデータ" />
-    <div class="form-group">
-      <label class="col-md-2 control-label">メールアドレス</label>
-      <div class="col-md-10">
-        <input class="form-control" name="メールアドレス" placeholder="test@test.com" type="email" />
-        <p class="help-block">
-          メールアドレスを入力すると、そのアドレス宛に自動返信メールを送信します。<br />メールアドレスはスプレッドシートに登録されないので、安心してお試し下さい。自分のGmail(lab.snowsunny)に送信履歴が残りますが、その情報を何かに使用する事は有りません。<br />どうしても不安なら<a href="https://one-time.email">One-Time.Email</a>を使うのがおすすめです！HTMLメールとテキストメールの両方を同時に確認する事が出来ます。
-        </p>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2 control-label">Qiitaのユーザー名</label>
-      <div class="col-md-10">
-        <input class="form-control" name="Qiitaのユーザー名" placeholder="良ければQiitaのユーザー名を教えて下さーい" />
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2 control-label">一言コメント</label>
-      <div class="col-md-10">
-        <input class="form-control" name="一言コメント" placeholder="適当でOK。何かコメントを貰えるだけで喜びます！(｀･ω･´)b" required="required" />
-      </div>
-    </div>
-    <div class="form-group">
-      <div class="col-md-offset-2 col-md-10">
-        <button class="btn btn-primary" type="submit">送信</button>
-      </div>
-    </div>
-  </form>
-  <hr />
-  <h3 class="text-center">
-    Qiitaの投稿記事
-  </h3>
-  <p class="text-center">
-    このサンプルは下記リンクの投稿用の物です。
-  </p>
-  <div class="text-center">
-    <a href="http://qiita.com/snowsunny/items/56a85c63598dcfb1b06e">【短いコードで色々出来る】Google Apps Scriptでスプレッドシートと連携した無料Ajaxフォームの作り方※サンプル付き【自動返信メールもあるよ】</a>
-  </div>
-</div>
+<html>
+<head>
+<style type="text/css">
+<!--
+form .form-horizontal .label.label-danger {
+    border-radius: 4px
+    border-bottom-left-radius: 0px
+    border-bottom-right-radius: 0px
+}
+form .form-horizontal input[required] {
+    border-top-left-radius: 0px
+}
+//-->
+</style>
+</head>
+<body>
+	<div class="container">
+	  <h1 class="text-center">
+	    【GAS】 スプレッドシートと連携したAjaxフォーム
+	  </h1>
+	  <hr />
+	  <form action="AKfycbyh06rA6n8nvlN1c0u44wLuurJguzA_kxxVwEYCxI_e3b9Riz8/exec" class="form-horizontal">
+	    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME" type="hidden" value="フォームデータ" />
+	    <div class="form-group">
+	      <label class="col-md-2 control-label">メールアドレス</label>
+	      <div class="col-md-10">
+	        <input class="form-control" name="メールアドレス" placeholder="test@test.com" type="email" />
+	        <p class="help-block">
+	          メールアドレスを入力すると、そのアドレス宛に自動返信メールを送信します。<br />メールアドレスはスプレッドシートに登録されないので、安心してお試し下さい。自分のGmail(lab.snowsunny)に送信履歴が残りますが、その情報を何かに使用する事は有りません。<br />どうしても不安なら<a href="https://one-time.email">One-Time.Email</a>を使うのがおすすめです！HTMLメールとテキストメールの両方を同時に確認する事が出来ます。
+	        </p>
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-md-2 control-label">Qiitaのユーザー名</label>
+	      <div class="col-md-10">
+	        <input class="form-control" name="Qiitaのユーザー名" placeholder="良ければQiitaのユーザー名を教えて下さーい" />
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-md-2 control-label">一言コメント</label>
+	      <div class="col-md-10">
+	        <input class="form-control" name="一言コメント" placeholder="適当でOK。何かコメントを貰えるだけで喜びます！(｀･ω･´)b" required="required" />
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <div class="col-md-offset-2 col-md-10">
+	        <button class="btn btn-primary" type="submit">送信</button>
+	      </div>
+	    </div>
+	  </form>
+	  <hr />
+	  <h3 class="text-center">
+	    Qiitaの投稿記事
+	  </h3>
+	  <p class="text-center">
+	    このサンプルは下記リンクの投稿用の物です。
+	  </p>
+	  <div class="text-center">
+	    <a href="http://qiita.com/snowsunny/items/56a85c63598dcfb1b06e">【短いコードで色々出来る】Google Apps Scriptでスプレッドシートと連携した無料Ajaxフォームの作り方※サンプル付き【自動返信メールもあるよ】</a>
+	  </div>
+	</div>
+</body>
+</html>
