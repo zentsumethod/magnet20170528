@@ -16,6 +16,42 @@ h1{
 	color: #ff00ff
 }
 </style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js"></script>
+<script>
+$(function() {
+  var required_tag, requires;
+  required_tag = '<span class="label label-danger">必須</span>';
+  requires = $('form [required]').each(function(i, elm) {
+    return $(elm).before(required_tag);
+  });
+  return $('form').validate({
+    debug: true,
+    submitHandler: function(e) {
+      var btn_submit, form;
+      form = $(e);
+      btn_submit = form.find('button[type=submit]');
+      return $.ajax({
+        url: form.attr('action'),
+        dataType: 'jsonp',
+        data: form.serialize(),
+        beforeSend: function() {
+          return btn_submit.attr('disabled', true);
+        },
+        complete: function() {
+          return btn_submit.attr('disabled', false);
+        },
+        success: function(response) {
+          return console.log(response);
+        },
+        error: function(response) {
+          return console.log(response);
+        }
+      });
+    }
+  });
+});
+</script>
 </head>
 <body>
 	<div class="container">
