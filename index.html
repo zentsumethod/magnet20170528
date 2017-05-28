@@ -1,5 +1,7 @@
 <html>
 <head>
+<!--最小限のビューポート設定-->
+<meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <style type="text/css">
 form.form-horizontal .label.label-danger {
@@ -9,6 +11,10 @@ form.form-horizontal .label.label-danger {
 }
 form.form-horizontal input[required] {
   border-top-left-radius: 0px;
+}
+@media screen and (max-width:375px) {
+/*スマホ用のcssを記述*/
+h1 { font-size : 300%; color : #ff0000; } 
 }
 </style>
 
