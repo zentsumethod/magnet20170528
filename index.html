@@ -14,7 +14,7 @@ form.form-horizontal input[required] {
 }
 @media screen and (max-width:375px) {
 /*スマホ用のcssを記述*/
-h1 { font-size : 250%; color : #ff0000; } 
+h1 { font-size : 250%; } 
 }
 </style>
 
@@ -60,39 +60,40 @@ $(function() {
 	  <h1 class="text-center">
 	    成績入力フォーム
 	  </h1>
+	  <p class="help-block">
+          全員の合計が10万点になるよう、順位順に得点を入力してください。
+        </p>
 	  <hr />
 	  <form action="https://script.google.com/macros/s/AKfycbyh06rA6n8nvlN1c0u44wLuurJguzA_kxxVwEYCxI_e3b9Riz8/exec" class="form-horizontal">
 	    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME" type="hidden" value="フォームデータ" />
 	    <div class="form-group">
-	      <label class="col-md-2 control-label">メールアドレス</label>
-	      <div class="col-md-10">
-	        <input class="form-control" name="メールアドレス" placeholder="test@test.com" type="email" />
-	        <p class="help-block">
-	          メールアドレスを入力すると、そのアドレス宛に自動返信メールを送信します。<br />メールアドレスはスプレッドシートに登録されないので、安心してお試し下さい。自分のGmail(lab.snowsunny)に送信履歴が残りますが、その情報を何かに使用する事は有りません。<br />どうしても不安なら<a href="https://one-time.email">One-Time.Email</a>を使うのがおすすめです！HTMLメールとテキストメールの両方を同時に確認する事が出来ます。
-	        </p>
+	      <label class="col-sm-2 control-label">1位</label>
+	      <div class="col-sm-10">
+	        <input class="form-control" name="player1" placeholder="1位の得点を入力してください（入力例）25000" required="required" />
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label class="col-md-2 control-label">Qiitaのユーザー名</label>
-	      <div class="col-md-10">
-	        <input class="form-control" name="Qiitaのユーザー名" placeholder="良ければQiitaのユーザー名を教えて下さーい" />
+	      <label class="col-sm-2 control-label">2位</label>
+	      <div class="col-sm-10">
+	        <input class="form-control" name="player2" placeholder="2位の得点を入力してください（入力例）25000" required="required" />
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <label class="col-md-2 control-label">一言コメント</label>
-	      <div class="col-md-10">
-	        <input class="form-control" name="一言コメント" placeholder="適当でOK。何かコメントを貰えるだけで喜びます！(｀･ω･´)b" required="required" />
+	      <label class="col-sm-2 control-label">3位</label>
+	      <div class="col-sm-10">
+	        <input class="form-control" name="player3" placeholder="3位の得点を入力してください（入力例）25000" required="required" />
 	      </div>
 	    </div>
 	    <div class="form-group">
-	      <div class="col-md-offset-2 col-md-10">
-	        <button class="btn btn-primary" type="submit">送信</button>
+	      <label class="col-sm-2 control-label">4位</label>
+	      <div class="col-sm-10">
+	        <input class="form-control" name="player4" placeholder="4位の得点を入力してください（入力例）25000" required="required" />
 	      </div>
 	    </div>
 	  </form>
 	  <hr />
 	  <h3 class="text-center">
-	    Qiitaの投稿記事
+	    その他ページ
 	  </h3>
 	  <div class="text-center">
 	    <a href="http://qiita.com/snowsunny/items/56a85c63598dcfb1b06e">新規メンバー登録はこちら</a>
