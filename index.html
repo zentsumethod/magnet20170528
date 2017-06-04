@@ -37,7 +37,11 @@ $(function() {
 				total = total + parseInt(point);
 			};
 		});
-		$('.total').text(total);
+		if(total === 1000){
+			$('.total').text(total);
+		}else{
+			$('.total').text(total+"合計が1000になるよう入力してください");
+		}
 	});
 	
 	var required_tag, requires;
