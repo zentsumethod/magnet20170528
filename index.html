@@ -38,10 +38,10 @@ $(function() {
 			};
 		});
 		if(total === 1000){
-			$('.total').text(total);
+			$('.total').html(total);
 			$('button[type=submit]').prop('disabled', false);
 		}else{
-			$('.total').text(total+"<br>1000になるよう入力してください");
+			$('.total').html(total+"<br>1000になるよう入力してください");
 			$('button[type=submit]').prop('disabled', true);
 		}
 	});
