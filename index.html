@@ -34,6 +34,7 @@ $(function() {
 		$('.point').each(function(){
 			var point = $(this).val();
 			total = total + parseInt(point);
+			$('.total').text(total);
 		});
 	});
 	
