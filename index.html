@@ -33,9 +33,11 @@ $(function() {
 		total = 0;
 		$('.point').each(function(){
 			var point = $(this).val();
-			total = total + parseInt(point);
-			$('.total').text(total);
+			if($.isNumeric(point)){
+				total = total + parseInt(point);
+			};
 		});
+		$('.total').text(total);
 	});
 	
 	var required_tag, requires;
