@@ -29,7 +29,7 @@ h1 { font-size : 200%; }
 <script>
 $(function() {
 	var total;
-	$('.point').change(function(){
+	$('.point').keypress(function(){
 		total = 0;
 		$('.point').each(function(){
 			var point = $(this).val();
