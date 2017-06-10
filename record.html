@@ -113,30 +113,46 @@ $(function() {
 		</div>
 	  </form>
 	
-	<script>
-		var ctx = document.getElementById("myChart").getContext('2d');
-		var myChart = new Chart(ctx, {
-		  type: 'line',
-		  data: {
-		    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-		    datasets: [{
-		      label: 'apples',
-		      data: [12, 19, 3, 17, 6, 3, 7],
-		      backgroundColor: "rgba(153,255,51,0.4)"
-		    }, {
-		      label: 'oranges',
-		      data: [2, 29, 5, 5, 2, 3, 10],
-		      backgroundColor: "rgba(255,153,0,0.4)"
-		    }]
-		  }
-		});
-	</script>
-	<div class="container">
-  	<h2>Chart.js — Line Chart Demo</h2>
-  	<div>
-    	<canvas id="myChart"></canvas>
-  	</div>
-	</div>
+	<div style="width: 50%">
+    <canvas id="chart" height="450" width="600"></canvas>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
+  <!-- もしくは<script src="Chart.min.js"></script> -->
+  <script>
+  var doughnutData = [
+      {
+        value: 500,
+        color:"#9bcad0",
+        highlight: "#a7d7de",
+        label: "スマートフォン"
+      },
+      {
+        value: 150,
+        color: "#d5a87f",
+        highlight: "#e4b68a",
+        label: "PC"
+      },
+      {
+        value: 80,
+        color: "#cca9ca",
+        highlight: "#dcb7da",
+        label: "タブレット"
+      },
+      {
+        value: 20,
+        color: "#edef9c",
+        highlight: "#fcfea6",
+        label: "その他デバイス"
+      }
+    ];
+    window.onload = function(){
+      var ctx = document.getElementById("chart").getContext("2d");
+      window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
+        responsive : true
+      });
+    }
+</script>
 		
 	  <hr />
 	  <div class="text-center h4">
