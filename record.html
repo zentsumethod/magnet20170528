@@ -74,7 +74,10 @@ $(function() {
 				},
 				success: function(response) {
 					result = response;
-					updateChart();
+					// データ書き換え
+	window.myPie.segments[0].value = 10;
+	// グラフ再描画の実行
+	window.myPie.update();
 					return console.log(result);
 				},
 				error: function(response) {
