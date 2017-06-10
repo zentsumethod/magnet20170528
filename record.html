@@ -43,11 +43,6 @@ li.rnk3:before {
 li.rnk4:before {
   background: #a979ad;
 }
-.clear-fix:after {
-  display: block;
-  clear: both;
-  content: "";
-}
 .wrap {
   overflow: hidden;
 }
@@ -148,20 +143,20 @@ $(function() {
 		</div>
 	  </form>
 
-  
-<div class="wrap">
-  <div style="width: 60%;float: left">
-    <canvas id="pie-chart" height="200" width="200"></canvas>
-  </div>
-  <div style="width: 30%;float: right;padding: 30px">
-    <ul class="clear-fix" style="width: 100px;padding: 20px;margin-right: 20px;box-shadow: 1px 1px 4px 1px #ccc">
-      <li class="rnk1">1位</li>
-      <li class="rnk2">2位</li>
-      <li class="rnk3">3位</li>
-      <li class="rnk4">4位</li>
-    </ul>
-  </div>
-		</div>
+
+	<div class="wrap">
+	  <div style="width: 60%;float: left">
+	    <canvas id="pie-chart" height="200" width="200"></canvas>
+	  </div>
+	  <div style="width: 30%;float: right;padding: 30px">
+	    <ul style="width: 100px;padding: 20px;margin-right: 20px;box-shadow: 1px 1px 4px 1px #ccc">
+	      <li class="rnk1">1位</li>
+	      <li class="rnk2">2位</li>
+	      <li class="rnk3">3位</li>
+	      <li class="rnk4">4位</li>
+	    </ul>
+	  </div>
+	</div>
 
   <!-- もしくは<script src="Chart.js"></script> -->
   <script>
@@ -202,7 +197,7 @@ $(function() {
 		
 	  <hr />
 	  <div class="text-center h4">
-	    <a href="https://docs.google.com/spreadsheets/d/1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8/edit#gid=1258960753">戦績はこちら</a>
+	    <a href="https://zentsumethod.github.io/magnet20170528/">成績入力はこちら</a>
 	  </div>
 	  <div class="text-center h4">
 	    <a href="https://docs.google.com/spreadsheets/d/1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8/edit#gid=1258960753">新規メンバー登録はこちら</a>
