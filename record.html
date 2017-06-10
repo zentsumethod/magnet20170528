@@ -117,48 +117,64 @@ $(function() {
   </div>
 
   
+
+
+  <div style="width: 30%;float: left">
+    <canvas id="pie-chart" height="450" width="450"></canvas>
+  </div>
+  <div style="width: 70%;float: right;padding: 50px">
+    <ul style="width: 200px;padding: 20px;box-shadow: 1px 1px 4px 1px #ccc">
+      <li class="twenties">20代</li>
+      <li class="thirties">30代</li>
+      <li class="forties">40代</li>
+      <li class="grandmother">おばあちゃん</li>
+      <li class="hiroshi">ひろし</li>
+    </ul>
+  </div>
+
 　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
-  <!-- もしくは<script src="Chart.min.js"></script> -->
-	<script>
-	  var pieData = [
-	    {
-	      value: 37,
-	      color:"#9acce3",
-	      highlight: "#aadbf2",
-	      label: "20代"
-	    },
-	    {
-	      value: 30,
-	      color: "#70b062",
-	      highlight: "#7fc170",
-	      label: "30代"
-	    },
-	    {
-	      value: 20,
-	      color: "#dbdf19",
-	      highlight: "#ecef23",
-	      label: "40代"
-	    },
-	    {
-	      value: 10,
-	      color: "#a979ad",
-	      highlight: "#bb8ebf",
-	      label: "おばあちゃん"
-	    },
-	    {
-	      value: 3,
-	      color: "#cd5638",
-	      highlight: "#e2694a",
-	      label: "ひろし"
-	    }
+  <!-- もしくは<script src="Chart.js"></script> -->
+  <script>
+  var pieData = [
+    {
+      value: 37,
+      color:"#9acce3",
+      highlight: "#aadbf2",
+      label: "20代"
+    },
+    {
+      value: 30,
+      color: "#70b062",
+      highlight: "#7fc170",
+      label: "30代"
+    },
+    {
+      value: 20,
+      color: "#dbdf19",
+      highlight: "#ecef23",
+      label: "40代"
+    },
+    {
+      value: 10,
+      color: "#a979ad",
+      highlight: "#bb8ebf",
+      label: "おばあちゃん"
+    },
+    {
+      value: 3,
+      color: "#cd5638",
+      highlight: "#e2694a",
+      label: "ひろし"
+    }
 
-	  ];
+  ];
 
-	  window.onload = function(){
-	    var ctx = document.getElementById("pie-chart").getContext("2d");
-	    window.myPie = new Chart(ctx).Pie(pieData);
-	  };
-	</script>
+  window.onload = function(){
+    var ctx = document.getElementById("pie-chart").getContext("2d");
+    window.myPie = new Chart(ctx).Pie(pieData);
+  };
+
+  </script>
 		
 	  <hr />
 	  <div class="text-center h4">
