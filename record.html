@@ -1,42 +1,154 @@
-<!DOCTYPE html>
 <html>
 <head>
-<title>スプレッド読込みテスト</title>
-<!--クライアントスクリプト-->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<!--最小限のビューポート設定-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style type="text/css">
+form.form-horizontal .label.label-danger {
+	border-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+form.form-horizontal input[required] {
+	border-top-left-radius: 0px;
+}
+span.total {
+	font-weight: bold;
+}
+button {
+	width: 100%;
+}
+.h4 {
+	margin-bottom: 15px;
+}
+@media screen and (max-width:375px) {
+/*スマホ用のcssを記述*/
+h1 { font-size : 200%; } 
+}
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script>
-  $(function() {
-    $('#edit input[type="submit"]').click(function(e) {
-      e.preventDefault();
-      google.script.run.withSuccessHandler(eventEnd).SelectData(this.parentNode);
-    });
-  });
-  // SelectData() が完了したら呼び出される
-  function eventEnd( serverResult ) {
-
-
-   //Msgを表示させる
- //window.confirm(serverResult);
-   document.form1.text1.value=(serverResult);
-
-  }
+$(function() {
+	var total;
+	$('.point').keyup(function(){
+		total = 1;
+		$('.point').each(function(){
+			var point = $(this).val();
+			if($.isNumeric(point)){
+				total = parseInt(point);
+			};
+		});
+		if(total <= 500){
+			$('.total').html(total);
+			$('button[type=submit]').prop('disabled', false);
+		}else{
+			$('.total').html(total+"<br>存在する会員番号を入力してください");
+			$('button[type=submit]').prop('disabled', true);
+		}
+	});
+	
+	var required_tag, requires;
+	required_tag = '<span class="label label-danger">必須</span>';
+	requires = $('form [required]').each(function(i, elm) {
+		return $(elm).before(required_tag);
+	});
+	return $('form').validate({
+		debug: true,
+		submitHandler: function(e) {
+			var btn_submit, form;
+			form = $(e);
+			btn_submit = form.find('button[type=submit]');
+			return $.ajax({
+				url: form.attr('action'),
+				dataType: 'jsonp',
+				data: form.serialize(),
+				beforeSend: function() {
+					return btn_submit.attr('disabled', true);
+				},
+				complete: function() {
+					return btn_submit.attr('disabled', false);
+				},
+				success: function(response) {
+					return console.log(response);
+				},
+				error: function(response) {
+					return console.log(response);
+				}
+			});
+		}
+	});
+});
 </script>
-
 </head>
-
-<!--本体-->
 <body>
- <div id="edit">
-
-      <form name="form1">
-        <input id="selectindex" name="selectindex" type="text" value="" ><br>
-        <input id="selectindex" name="text1" type="text" value="" >
-        <input id="selectindex" name="text2" type="text" value="" >          
-        <input id="submitbutton" name="submitbutton" type="submit" value="スプレッド内容表示" >
-
-
-      </form>
-
- </div>
+	<div class="container">
+	  <h1 class="text-center">
+	    成績入力フォーム
+	  </h1>
+	  <p class="help-block text-center">
+          会員番号を入力してください。
+    </p>
+	  <form action="https://script.google.com/macros/s/AKfycbwTQHpqj2N7x2BMa1l9vjzEmC_W0eyyfVT87CVywmWZXEeqIkxs/exec" class="form-horizontal">
+	    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME3" type="hidden" value="戦績" />
+	    <div class="form-group">
+	      <label class="col-xs-2 control-label">1位</label>
+	      <div class="col-xs-4">
+	        <input type="number" class="form-control" name="No(1位)" placeholder="会員No" required="required" />
+	      </div>
+	      <div class="col-xs-6">
+	        <input type="number" class="form-control point" name="1位" placeholder="（入力例）250" required="required" />
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-xs-2 control-label">2位</label>
+	      <div class="col-xs-4">
+	        <input type="number" class="form-control" name="No(2位)" placeholder="会員No" required="required" />
+	      </div>
+	      <div class="col-xs-6">
+	        <input type="number" class="form-control point" name="2位" placeholder="2位の得点を入力" required="required" />
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-xs-2 control-label">3位</label>
+	      <div class="col-xs-4">
+	        <input type="number" class="form-control" name="No(3位)" placeholder="会員No" required="required" />
+	      </div>
+	      <div class="col-xs-6">
+	        <input type="number" class="form-control point" name="3位" placeholder="3位の得点を入力" required="required" />
+	      </div>
+	    </div>
+	    <div class="form-group">
+	      <label class="col-xs-2 control-label">4位</label>
+	      <div class="col-xs-4">
+	        <input type="number" class="form-control" name="No(4位)" placeholder="会員No" required="required" />
+	      </div>
+	      <div class="col-xs-6">
+	        <input type="number" class="form-control point" name="4位" placeholder="4位の得点を入力" required="required" />
+	      </div>
+	    </div>
+	    <div class="col-xs-offset-4 col-xs-8 alert alert-danger">
+	    	合計:  <span class="total">0</span>
+	    </div>
+	    <div class="form-group">
+			<div class="col-xs-offset-6 col-xs-3">
+			<button class="btn btn-danger" type="reset">reset</button>
+			</div>
+			<div class="col-xs-3">
+			<button class="btn btn-primary" type="submit">送信</button>
+			</div>
+		</div>
+	  </form>
+	  <hr />
+	  <div class="text-center h4">
+	    <a href="https://docs.google.com/spreadsheets/d/1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8/edit#gid=1258960753">戦績はこちら</a>
+	  </div>
+	  <div class="text-center h4">
+	    <a href="https://docs.google.com/spreadsheets/d/1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8/edit#gid=1258960753">新規メンバー登録はこちら</a>
+	  </div>
+	</div>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </body>
 </html>
