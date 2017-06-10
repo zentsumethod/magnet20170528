@@ -33,6 +33,7 @@ h1 { font-size : 200%; }
 <script>
 $(function() {
 	var total;
+	var result;
 	$('.point').keyup(function(){
 		total = 1;
 		$('.point').each(function(){
@@ -72,7 +73,7 @@ $(function() {
 					return btn_submit.attr('disabled', false);
 				},
 				success: function(response) {
-					var result = response;
+					result = response;
 					updateChart();
 					return console.log(result);
 				},
