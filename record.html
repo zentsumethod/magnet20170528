@@ -71,7 +71,8 @@ $(function() {
 					return btn_submit.attr('disabled', false);
 				},
 				success: function(response) {
-					return console.log(response);
+					var result = response;
+					return console.log(result);
 				},
 				error: function(response) {
 					return console.log(response);
