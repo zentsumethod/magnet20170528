@@ -68,10 +68,8 @@ $(function() {
 			};
 		});
 		if(total <= 500){
-			$('.total').html(total);
 			$('button[type=submit]').prop('disabled', false);
 		}else{
-			$('.total').html(total+"<br>存在する会員番号を入力してください");
 			$('button[type=submit]').prop('disabled', true);
 		}
 	});
@@ -126,9 +124,6 @@ $(function() {
 	  <h1 class="text-center">
 	    成績確認
 	  </h1>
-	  <p class="help-block text-center">
-          会員番号を入力してください。
- 　　　　　</p>
 	  <form action="https://script.google.com/macros/s/AKfycbwTQHpqj2N7x2BMa1l9vjzEmC_W0eyyfVT87CVywmWZXEeqIkxs/exec" class="form-horizontal">
 	    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME3" type="hidden" value="戦績" />
 	    <div class="form-group">
@@ -137,14 +132,11 @@ $(function() {
 	        <input type="number" class="form-control" name="usr_id" placeholder="会員No" required="required" />
 	      </div>
 	    </div>
-	    <div class="col-xs-offset-4 col-xs-8 alert alert-danger">
-	    	<span class="total"></span>
-	    </div>
 	    <div class="form-group">
 			<div class="col-xs-offset-8 col-xs-3">
 			<button class="btn btn-primary" type="submit">送信</button>
 			</div>
-		</div>
+	    </div>
 	  </form>
 
 
