@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>スプレッド読込みテスト</title>
+<!--クライアントスクリプト-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+  $(function() {
+    $('#edit input[type="submit"]').click(function(e) {
+      e.preventDefault();
+      google.script.run.withSuccessHandler(eventEnd).SelectData(this.parentNode);
+    });
+  });
+  // SelectData() が完了したら呼び出される
+  function eventEnd( serverResult ) {
+
+
+   //Msgを表示させる
+ //window.confirm(serverResult);
+   document.form1.text1.value=(serverResult);
+
+  }
+</script>
+
+</head>
+
+<!--本体-->
+<body>
+ <div id="edit">
+
+      <form name="form1">
+        <input id="selectindex" name="selectindex" type="text" value="" ><br>
+        <input id="selectindex" name="text1" type="text" value="" >
+        <input id="selectindex" name="text2" type="text" value="" >          
+        <input id="submitbutton" name="submitbutton" type="submit" value="スプレッド内容表示" >
+
+
+      </form>
+
+ </div>
+</body>
+</html>
