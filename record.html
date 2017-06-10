@@ -75,6 +75,9 @@ $(function() {
 					var result = response;
 					// データ書き換え
 					window.myPie.segments[0].value = result.rnk1;
+					window.myPie.segments[1].value = result.rnk2;
+					window.myPie.segments[2].value = result.rnk3;
+					window.myPie.segments[3].value = result.rnk4;
 					// グラフ再描画の実行
 					window.myPie.update();
 					return console.log(result);
@@ -135,25 +138,25 @@ $(function() {
   <script>
   var pieData = [
     {
-      value: 37,
+      value: 0,
       color:"#9acce3",
       highlight: "#aadbf2",
       label: "1位"
     },
     {
-      value: 30,
+      value: 0,
       color: "#70b062",
       highlight: "#7fc170",
       label: "2位"
     },
     {
-      value: 20,
+      value: 0,
       color: "#dbdf19",
       highlight: "#ecef23",
       label: "3位"
     },
     {
-      value: 10,
+      value: 0,
       color: "#a979ad",
       highlight: "#bb8ebf",
       label: "4位"
