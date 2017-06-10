@@ -112,47 +112,53 @@ $(function() {
 		</div>
 	  </form>
 	
-	<div style="width: 50%">
-    <canvas id="chart" height="450" width="600"></canvas>
+  <div style="width: 30%;float: left">
+    <canvas id="pie-chart" height="450" width="450"></canvas>
   </div>
 
   
 　<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
   <!-- もしくは<script src="Chart.min.js"></script> -->
-  <script>
-  var doughnutData = [
-      {
-        value: 500,
-        color:"#9bcad0",
-        highlight: "#a7d7de",
-        label: "スマートフォン"
-      },
-      {
-        value: 150,
-        color: "#d5a87f",
-        highlight: "#e4b68a",
-        label: "PC"
-      },
-      {
-        value: 80,
-        color: "#cca9ca",
-        highlight: "#dcb7da",
-        label: "タブレット"
-      },
-      {
-        value: 20,
-        color: "#edef9c",
-        highlight: "#fcfea6",
-        label: "その他デバイス"
-      }
-    ];
-    window.onload = function(){
-      var ctx = document.getElementById("chart").getContext("2d");
-      window.myDoughnut = new Chart(ctx).Doughnut(doughnutData, {
-        responsive : true
-      });
-    }
-</script>
+	<script>
+	  var pieData = [
+	    {
+	      value: 37,
+	      color:"#9acce3",
+	      highlight: "#aadbf2",
+	      label: "20代"
+	    },
+	    {
+	      value: 30,
+	      color: "#70b062",
+	      highlight: "#7fc170",
+	      label: "30代"
+	    },
+	    {
+	      value: 20,
+	      color: "#dbdf19",
+	      highlight: "#ecef23",
+	      label: "40代"
+	    },
+	    {
+	      value: 10,
+	      color: "#a979ad",
+	      highlight: "#bb8ebf",
+	      label: "おばあちゃん"
+	    },
+	    {
+	      value: 3,
+	      color: "#cd5638",
+	      highlight: "#e2694a",
+	      label: "ひろし"
+	    }
+
+	  ];
+
+	  window.onload = function(){
+	    var ctx = document.getElementById("pie-chart").getContext("2d");
+	    window.myPie = new Chart(ctx).Pie(pieData);
+	  };
+	</script>
 		
 	  <hr />
 	  <div class="text-center h4">
