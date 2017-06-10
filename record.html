@@ -33,7 +33,6 @@ h1 { font-size : 200%; }
 <script>
 $(function() {
 	var total;
-	var result;
 	$('.point').keyup(function(){
 		total = 1;
 		$('.point').each(function(){
@@ -73,11 +72,11 @@ $(function() {
 					return btn_submit.attr('disabled', false);
 				},
 				success: function(response) {
-					result = response;
+					var result = response;
 					// データ書き換え
-	window.myPie.segments[0].value = 10;
-	// グラフ再描画の実行
-	window.myPie.update();
+					window.myPie.segments[0].value = result.rnk1;
+					// グラフ再描画の実行
+					window.myPie.update();
 					return console.log(result);
 				},
 				error: function(response) {
@@ -166,13 +165,6 @@ $(function() {
     var ctx = document.getElementById("pie-chart").getContext("2d");
     window.myPie = new Chart(ctx).Pie(pieData);
   };
-  
-  function updateChart(){
-	// データ書き換え
-	window.myPie.segments[0].value = 1;
-	// グラフ再描画の実行
-	window.myPie.update();
-  }
 
   </script>
 		
