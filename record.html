@@ -29,6 +29,7 @@ h1 { font-size : 200%; }
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
 <script>
 $(function() {
 	var total;
@@ -111,6 +112,30 @@ $(function() {
 			</div>
 		</div>
 	  </form>
+	<div class="container">
+  	<h2>Chart.js — Line Chart Demo</h2>
+  	<div>
+    	<canvas id="myChart"></canvas>
+  	</div>
+	</div>
+	<script>
+		var myChart = new Chart(ctx, {
+		  type: 'line',
+		  data: {
+		    labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
+		    datasets: [{
+		      label: 'apples',
+		      data: [12, 19, 3, 17, 6, 3, 7],
+		      backgroundColor: "rgba(153,255,51,0.4)"
+		    }, {
+		      label: 'oranges',
+		      data: [2, 29, 5, 5, 2, 3, 10],
+		      backgroundColor: "rgba(255,153,0,0.4)"
+		    }]
+		  }
+		});
+	</script>
+		
 	  <hr />
 	  <div class="text-center h4">
 	    <a href="https://docs.google.com/spreadsheets/d/1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8/edit#gid=1258960753">戦績はこちら</a>
