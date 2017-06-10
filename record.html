@@ -48,6 +48,9 @@ li.rnk4:before {
   clear: both;
   content: "";
 }
+.wrap {
+  overflow: hidden;
+}
 
 @media screen and (max-width:375px) {
 /*スマホ用のcssを記述*/
@@ -146,7 +149,7 @@ $(function() {
 	  </form>
 
   
-
+<div class="wrap">
   <div style="width: 60%;float: left">
     <canvas id="pie-chart" height="200" width="200"></canvas>
   </div>
@@ -158,6 +161,7 @@ $(function() {
       <li class="rnk4">4位</li>
     </ul>
   </div>
+		</div>
 
   <!-- もしくは<script src="Chart.js"></script> -->
   <script>
