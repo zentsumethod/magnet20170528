@@ -28,7 +28,7 @@ $(function() {
 			// データ書き換え
 			$.each(result, function(i, val) {
 				var rank = i+1;
-				content += "<tr><th scope=row>"+ rank +"</th><td>"+ result[i][1] +"</td><td>"+ result[i][2] +"</td><td>"+ result[i][5] +"</td></tr>";
+				content += "<tr><th scope=row>"+ rank +"</th><td>"+ result[i][0] +"</td><td>"+ result[i][1] +"</td><td>"+ result[i][2] +"</td><td>"+ result[i][5] +"</td></tr>";
 			});
 			$('#ranking').html(content);
 			return console.log(result);
