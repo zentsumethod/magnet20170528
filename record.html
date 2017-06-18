@@ -102,6 +102,7 @@ $(function() {
 					window.myPie.segments[1].value = result.rnk2;
 					window.myPie.segments[2].value = result.rnk3;
 					window.myPie.segments[3].value = result.rnk4;
+					$('#ranking').html(result.ranking + "/" + result.rnk_cnt + "位");
 					$('#usr_name').html(result.usr_name);
 					$('#total').html(result.total);
 					$('#ave_pnt').html(result.ave_pnt);
@@ -141,6 +142,7 @@ $(function() {
 	<div class="wrap">
 	  <ul style="padding-left: 0;">
 		  <li>プレーヤ名：<span id="usr_name"></span></li>
+		  <li>リーグ順位：<span id="ranking"></span></li>
 		  <li>総得点：<span id="total"></span></li>
 		  <li>平均得点：<span id="ave_pnt"></span></li>
 		  <li>平均順位：<span id="ave_rnk"></span></li>
