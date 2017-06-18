@@ -1,1 +1,145 @@
+<html>
+<head>
+<!--最小限のビューポート設定-->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style type="text/css">
+form.form-horizontal .label.label-danger {
+	border-radius: 4px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+}
+form.form-horizontal input[required] {
+	border-top-left-radius: 0px;
+}
+span.total {
+	font-weight: bold;
+}
+button {
+	width: 100%;
+}
+.h4 {
+	margin-bottom: 15px;
+}
+* { box-sizing: border-box }
+li { list-style-type: none }
+li:before {
+  content: "";
+  display: inline-block;
+  height: 13px;
+  width: 13px;
+  margin-right: 5px;
+  border-radius: 3px;
+}
+.wrap {
+  overflow: hidden;
+}
+@media screen and (max-width:375px) {
+/*スマホ用のcssを記述*/
+h1 { font-size : 200%; } 
+}
+</style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script>
+$(function() {
+	var total;
+	$('.point').keyup(function(){
+		total = 1;
+		$('.point').each(function(){
+			var point = $(this).val();
+			if($.isNumeric(point)){
+				total = parseInt(point);
+			};
+		});
+		if(total <= 500){
+			$('button[type=submit]').prop('disabled', false);
+		}else{
+			$('button[type=submit]').prop('disabled', true);
+		}
+	});
+	
+	var required_tag, requires;
+	required_tag = '<span class="label label-danger">必須</span>';
+	requires = $('form [required]').each(function(i, elm) {
+		return $(elm).before(required_tag);
+	});
+	return $('form').validate({
+		debug: true,
+		submitHandler: function(e) {
+			var btn_submit, form;
+			form = $(e);
+			btn_submit = form.find('button[type=submit]');
+			return $.ajax({
+				url: form.attr('action'),
+				dataType: 'jsonp',
+				data: form.serialize(),
+				beforeSend: function() {
+					return btn_submit.attr('disabled', true);
+				},
+				complete: function() {
+					return btn_submit.attr('disabled', false);
+				},
+				success: function(response) {
+					var result = response;
+					// データ書き換え
+					$('#ranking').html(result.ranking + "/" + result.rnk_cnt + "位");
+					$('#usr_name').html(result.usr_name);
+					$('#total').html(result.total);
+					$('#ave_pnt').html(result.ave_pnt);
+					$('#ave_rnk').html(result.ave_rnk)
+					return console.log(result);
+				},
+				error: function(response) {
+					return console.log(response);
+				}
+			});
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<div class="container">
+	  <h1 class="text-center">
+	    ランキング
+	  </h1>
+	  <form action="https://script.google.com/macros/s/AKfycbwTQHpqj2N7x2BMa1l9vjzEmC_W0eyyfVT87CVywmWZXEeqIkxs/exec" class="form-horizontal">
+	    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME3" type="hidden" value="戦績" />
+	    <div class="form-group">
+	      <label class="col-xs-3 control-label form-control-static">会員No</label>
+	      <div class="col-xs-4">
+	        <input type="number" class="form-control" name="usr_id" placeholder="会員No" required="required" />
+	      </div>
+			<div class="col-xs-4">
+			<button class="btn btn-primary" style="margin-top:10px;" type="submit">送信</button>
+			</div>
+	    </div>
+	  </form>
+
+
+	<div class="wrap">
+	  <ul style="padding-left: 0;">
+		  <li>プレーヤ名：<span id="usr_name"></span></li>
+		  <li>リーグ順位：<span id="ranking"></span></li>
+		  <li>総得点：<span id="total"></span></li>
+		  <li>平均得点：<span id="ave_pnt"></span></li>
+		  <li>平均順位：<span id="ave_rnk"></span></li>
+	  </ul>
+	</div>
+
+
+		
+	  <hr />
+	  <div class="text-center h4">
+	    <a href="https://zentsumethod.github.io/magnet20170528/">成績入力はこちら</a>
+	  </div>
+	  <div class="text-center h4">
+	    <a href="https://docs.google.com/spreadsheets/d/1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8/edit#gid=1258960753">新規メンバー登録はこちら</a>
+	  </div>
+	</div>
+	
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</body>
+</html>
