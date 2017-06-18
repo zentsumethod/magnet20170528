@@ -28,7 +28,7 @@ $(function() {
 			// データ書き換え
 			$.each(result, function(i, val) {
 				var rank = i+1;
-				content += "<tr><th scope=row>"+ rank +"</td><td>"+ result[i][0] +"."+ result[i][1] +"</td><td>"+ result[i][2] +"</td><td>"+ result[i][5] +"</td></tr>";
+				content += "<tr><th scope=row>"+ rank +"</td><td>"+ "<a href=https://zentsumethod.github.io/magnet20170528/record.html?usr_id=" + "1" + ">" + result[i][0] +"."+ result[i][1] + "</a>"+"</td><td>"+ result[i][2] +"</td><td>"+ result[i][5] +"</td></tr>";
 			});
 			$('#ranking').html(content);
 			return console.log(result);
@@ -51,7 +51,7 @@ $(function() {
 		<thread>
 			<tr>
 				<th>順位</th>
-				<th>名前</th>
+				<th>名前(No)</th>
 				<th>総得点</th>
 				<th>試合数</th>
 			</tr>
