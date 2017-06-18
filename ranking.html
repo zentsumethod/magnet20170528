@@ -24,8 +24,12 @@ $(function() {
 		dataType: 'jsonp',
 		success: function(response) {
 			var result = response;
+			var content = "";
 			// データ書き換え
 			$('#ranking').html(result);
+			$.each(result, function(i, val) {
+				content = "<tr><th scope=\\"row\\">"+ i+1 +"</th><td>"+ result[i][1] +"</td><td>"+ result[i][2] +"</td><td>"+ result[i][5] +"</td></tr>";
+			}
 			return console.log(result);
 		},
 		error: function(response) {
@@ -51,7 +55,7 @@ $(function() {
 				<th>試合数</th>
 			</tr>
 		</thread>
-		<tbody>
+		<tbody "ranking">
 		</tbody>
 	  </table>
 	</div>
