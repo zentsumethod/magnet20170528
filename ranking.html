@@ -45,54 +45,20 @@ h1 { font-size : 200%; }
 <script>
 $(function() {
 	var total;
-	$('.point').keyup(function(){
-		total = 1;
-		$('.point').each(function(){
-			var point = $(this).val();
-			if($.isNumeric(point)){
-				total = parseInt(point);
-			};
-		});
-		if(total <= 500){
-			$('button[type=submit]').prop('disabled', false);
-		}else{
-			$('button[type=submit]').prop('disabled', true);
+	$.ajax({
+		url: 'https://script.google.com/macros/s/AKfycbwCjOVqJVHJTQC_AjNNOaRLGCXhwsKe8ibsdT4Ha_V3GEU5OsVY/exec',
+		dataType: 'jsonp',
+		success: function(response) {
+			var result = response;
+			// データ書き換え
+			$('#ranking').html(result);
+			return console.log(result);
+		},
+		error: function(response) {
+			return console.log(response);
 		}
 	});
 	
-	var required_tag, requires;
-	required_tag = '<span class="label label-danger">必須</span>';
-	requires = $('form [required]').each(function(i, elm) {
-		return $(elm).before(required_tag);
-	});
-	return $('form').validate({
-		debug: true,
-		submitHandler: function(e) {
-			var btn_submit, form;
-			form = $(e);
-			btn_submit = form.find('button[type=submit]');
-			return $.ajax({
-				url: form.attr('action'),
-				dataType: 'jsonp',
-				data: form.serialize(),
-				beforeSend: function() {
-					return btn_submit.attr('disabled', true);
-				},
-				complete: function() {
-					return btn_submit.attr('disabled', false);
-				},
-				success: function(response) {
-					var result = response;
-					// データ書き換え
-					$('#ranking').html(result);
-					return console.log(result);
-				},
-				error: function(response) {
-					return console.log(response);
-				}
-			});
-		}
-	});
 });
 </script>
 </head>
@@ -101,19 +67,6 @@ $(function() {
 	  <h1 class="text-center">
 	    ランキング
 	  </h1>
-	  <form action="https://script.google.com/macros/s/AKfycbwCjOVqJVHJTQC_AjNNOaRLGCXhwsKe8ibsdT4Ha_V3GEU5OsVY/exec" class="form-horizontal">
-	    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME3" type="hidden" value="戦績" />
-	    <div class="form-group">
-	      <label class="col-xs-3 control-label form-control-static">会員No</label>
-	      <div class="col-xs-4">
-	        <input type="number" class="form-control" name="usr_id" placeholder="会員No" required="required" />
-	      </div>
-			<div class="col-xs-4">
-			<button class="btn btn-primary" style="margin-top:10px;" type="submit">送信</button>
-			</div>
-	    </div>
-	  </form>
-
 
 	<div class="wrap">
 	  <ul style="padding-left: 0;">
