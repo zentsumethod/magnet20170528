@@ -62,8 +62,8 @@ $(function() {
 	var url   = location.href;
 	params    = url.split("?");
 	spparams   = params[1].split("&");
-
 	var paramArray = [];
+	//連想配列paramArrayにGETパラメータを格納
 	for ( i = 0; i < spparams.length; i++ ) {
 	    vol = spparams[i].split("=");
 	    paramArray.push(vol[0]);
