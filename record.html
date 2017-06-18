@@ -122,8 +122,8 @@ $(function() {
 					$('#ranking').html(result.ranking + "/" + result.rnk_cnt + "位");
 					$('#usr_name').html(result.usr_name);
 					$('#total').html(result.total);
-					$('#ave_pnt').html(result.ave_pnt);
-					$('#ave_rnk').html(result.ave_rnk);
+					$('#ave_pnt').html(floatFormat(result.ave_pnt,2));
+					$('#ave_rnk').html(floatFormat(result.ave_rnk,2));
 					// グラフ再描画の実行
 					window.myPie.update();
 					return console.log(result);
@@ -135,6 +135,10 @@ $(function() {
 		}
 	});
 });
+function floatFormat( number, n ) {
+	var _pow = Math.pow( 10 , n ) ;
+	return Math.round( number * _pow ) / _pow ;
+}
 </script>
 </head>
 <body>
