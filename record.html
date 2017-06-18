@@ -72,7 +72,7 @@ $(function() {
 	//usr_idパラメータをフォームの初期値に登録
 	if ( paramArray["usr_id"] != "") {
 	    $("input[name='usr_id']").val(paramArray["usr_id"]);
-	    $("input[name='usr_id']").submit();
+	    $("#usr_id").submit();
 	}
 
 	var total;
@@ -143,7 +143,7 @@ $(function() {
 	  <h1 class="text-center">
 	    成績確認
 	  </h1>
-	  <form action="https://script.google.com/macros/s/AKfycbwTQHpqj2N7x2BMa1l9vjzEmC_W0eyyfVT87CVywmWZXEeqIkxs/exec" class="form-horizontal">
+	  <form id="usr_id" action="https://script.google.com/macros/s/AKfycbwTQHpqj2N7x2BMa1l9vjzEmC_W0eyyfVT87CVywmWZXEeqIkxs/exec" class="form-horizontal">
 	    <input name="SPREADSHEET_ID" type="hidden" value="1UZSfJd6rZZgv0x3DlVfaaoLA5VJ4i7Wr_4CrsG543N8" /><input name="SHEET_NAME3" type="hidden" value="戦績" />
 	    <div class="form-group">
 	      <label class="col-xs-3 control-label form-control-static">会員No</label>
