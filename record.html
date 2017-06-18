@@ -119,7 +119,7 @@ $(function() {
 					window.myPie.segments[1].value = result.rnk2;
 					window.myPie.segments[2].value = result.rnk3;
 					window.myPie.segments[3].value = result.rnk4;
-					$('#ranking').html(result.ranking + "/" + result.rnk_cnt + "位");
+					$('#ranking').html(result.ranking + "位 (" + result.rnk_cnt + "人中)");
 					$('#usr_name').html(result.usr_name);
 					$('#total').html(result.total);
 					$('#ave_pnt').html(floatFormat(result.ave_pnt,2));
