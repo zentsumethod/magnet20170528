@@ -72,36 +72,6 @@ $(function() {
 	//usr_idパラメータをフォームの初期値に登録
 	if ( paramArray["usr_id"] != "") {
 	    $("input[name='usr_id']").val(paramArray["usr_id"]);
-	    $.ajax({
-		url: form.attr('action'),
-		dataType: 'jsonp',
-		data: form.serialize(),
-		beforeSend: function() {
-			return btn_submit.attr('disabled', true);
-		},
-		complete: function() {
-			return btn_submit.attr('disabled', false);
-		},
-		success: function(response) {
-			var result = response;
-			// データ書き換え
-			window.myPie.segments[0].value = result.rnk1;
-			window.myPie.segments[1].value = result.rnk2;
-			window.myPie.segments[2].value = result.rnk3;
-			window.myPie.segments[3].value = result.rnk4;
-			$('#ranking').html(result.ranking + "/" + result.rnk_cnt + "位");
-			$('#usr_name').html(result.usr_name);
-			$('#total').html(result.total);
-			$('#ave_pnt').html(result.ave_pnt);
-			$('#ave_rnk').html(result.ave_rnk);
-			// グラフ再描画の実行
-			window.myPie.update();
-			return console.log(result);
-		},
-		error: function(response) {
-			return console.log(response);
-		}
-	    });
 	}
 
 	var total;
