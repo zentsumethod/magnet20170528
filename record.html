@@ -58,21 +58,21 @@ h1 { font-size : 200%; }
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
 <script>
 $(function() {
-	//urlからGETパラメータを取得
-	var url   = location.href;
-	params    = url.split("?");
-	spparams   = params[1].split("&");
-	var paramArray = [];
-	//連想配列paramArrayにGETパラメータを格納
-	for ( i = 0; i < spparams.length; i++ ) {
-	    vol = spparams[i].split("=");
-	    paramArray.push(vol[0]);
-	    paramArray[vol[0]] = vol[1];
-	}
-	//usr_idパラメータをフォームの初期値に登録
-	if ( paramArray["usr_id"] != "") {
-	    $("input[name='usr_id']").val(paramArray["usr_id"]);
-	}
+// 	//urlからGETパラメータを取得
+// 	var url   = location.href;
+// 	params    = url.split("?");
+// 	spparams   = params[1].split("&");
+// 	var paramArray = [];
+// 	//連想配列paramArrayにGETパラメータを格納
+// 	for ( i = 0; i < spparams.length; i++ ) {
+// 	    vol = spparams[i].split("=");
+// 	    paramArray.push(vol[0]);
+// 	    paramArray[vol[0]] = vol[1];
+// 	}
+// 	//usr_idパラメータをフォームの初期値に登録
+// 	if ( paramArray["usr_id"] != "") {
+// 	    $("input[name='usr_id']").val(paramArray["usr_id"]);
+// 	}
 
 	var total;
 	
