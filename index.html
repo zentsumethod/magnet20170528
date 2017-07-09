@@ -69,6 +69,7 @@ $(function() {
 				},
 				complete: function() {
 					$('input[type=number]').val("");
+					$('.total').html("成績を入力しました");
 					return btn_submit.attr('disabled', false);
 				},
 				success: function(response) {
@@ -137,7 +138,7 @@ $(function() {
 	    </div>
 	    <div class="form-group">
 			<div class="col-xs-offset-6 col-xs-3">
-			<button id="clearForm" class="btn btn-danger" type="reset">reset</button>
+			<button class="btn btn-danger" type="reset">reset</button>
 			</div>
 			<div class="col-xs-3">
 			<button class="btn btn-primary" type="submit">送信</button>
