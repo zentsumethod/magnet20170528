@@ -68,6 +68,9 @@ $(function() {
 					return btn_submit.attr('disabled', true);
 				},
 				complete: function() {
+					$('#clearForm').bind('click', function(){
+						$(this.form).find("textarea, :text, select").val("").end().find(":checked").prop("checked", false);
+					});
 					return btn_submit.attr('disabled', false);
 				},
 				success: function(response) {
@@ -136,7 +139,7 @@ $(function() {
 	    </div>
 	    <div class="form-group">
 			<div class="col-xs-offset-6 col-xs-3">
-			<button class="btn btn-danger" type="reset">reset</button>
+			<button id="clearForm" class="btn btn-danger" type="reset">reset</button>
 			</div>
 			<div class="col-xs-3">
 			<button class="btn btn-primary" type="submit">送信</button>
