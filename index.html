@@ -82,7 +82,7 @@ $(function() {
 	});
 	
 	$('#clearForm').click(function(e) {
-		$(this.form).find("textarea, :text, select").val("").end().find(":checked").prop("checked", false);
+		$(this.form).find("textarea, :text, select, input").val("").end().find(":checked").prop("checked", false);
 	});
 });
 </script>
