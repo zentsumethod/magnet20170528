@@ -68,7 +68,7 @@ $(function() {
 					return btn_submit.attr('disabled', true);
 				},
 				complete: function() {
-					$(this.form).find("textarea, :text, select").val("").end().find(":checked").prop("checked", false);
+					$('button[type=number]').val("");
 					return btn_submit.attr('disabled', false);
 				},
 				success: function(response) {
@@ -82,7 +82,20 @@ $(function() {
 	});
 	
 	$('#clearForm').click(function(e) {
-		$(this.form).find("textarea, :text, select, input").val("").end().find(":checked").prop("checked", false);
+		total = 0;
+		$('.point').each(function(){
+			var point = $(this).val();
+			if($.isNumeric(point)){
+				total = total + parseInt(point);
+			};
+		});
+		if(total === 1000){
+			$('.total').html(total);
+			$('button[type=submit]').prop('disabled', false);
+		}else{
+			$('.total').html(total+"<br>合計値が1000ではありません");
+			$('button[type=submit]').prop('disabled', true);
+		}
 	});
 });
 </script>
