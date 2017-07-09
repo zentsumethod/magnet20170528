@@ -80,23 +80,6 @@ $(function() {
 			});
 		}
 	});
-	
-	$('#clearForm').click(function(e) {
-		total = 0;
-		$('.point').each(function(){
-			var point = $(this).val();
-			if($.isNumeric(point)){
-				total = total + parseInt(point);
-			};
-		});
-		if(total === 1000){
-			$('.total').html(total);
-			$('button[type=submit]').prop('disabled', false);
-		}else{
-			$('.total').html(total+"<br>合計値が1000ではありません");
-			$('button[type=submit]').prop('disabled', true);
-		}
-	});
 });
 </script>
 </head>
