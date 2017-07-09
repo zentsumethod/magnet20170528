@@ -42,7 +42,7 @@ $(function() {
 		});
 		if(total === 1000){
 			$('.total').html(total);
-			$('input[type=submit]').prop('disabled', false);
+			$('button[type=submit]').prop('disabled', false);
 		}else{
 			$('.total').html(total+"<br>合計値が1000ではありません");
 			$('button[type=submit]').prop('disabled', true);
@@ -68,7 +68,7 @@ $(function() {
 					return btn_submit.attr('disabled', true);
 				},
 				complete: function() {
-					$('button[type=number]').val("");
+					$('input[type=number]').val("");
 					return btn_submit.attr('disabled', false);
 				},
 				success: function(response) {
